@@ -1,6 +1,6 @@
 <?php
 
-namespace ThreeAccents;
+namespace ThreeAccents\Users\Entities;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

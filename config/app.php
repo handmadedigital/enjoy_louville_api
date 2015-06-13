@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'providers' => [
+    'providers' => array(
 
         /*
          * Laravel Framework Service Providers...
@@ -144,7 +144,13 @@ return [
         ThreeAccents\Providers\EventServiceProvider::class,
         ThreeAccents\Providers\RouteServiceProvider::class,
 
-    ],
+        /*
+         * THIRD PARTY
+         */
+        Barryvdh\Cors\CorsServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
+    ),
 
     /*
     |--------------------------------------------------------------------------

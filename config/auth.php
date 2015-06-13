@@ -1,5 +1,7 @@
 <?php
 
+use ThreeAccents\Users\Entities\User;
+
 return [
 
     /*
@@ -28,7 +30,7 @@ return [
     |
     */
 
-    'model' => ThreeAccents\User::class,
+    'model' => User::class,
 
     /*
     |--------------------------------------------------------------------------
