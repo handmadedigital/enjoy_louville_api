@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace ThreeAccents\Events;
 
 abstract class Event
 {

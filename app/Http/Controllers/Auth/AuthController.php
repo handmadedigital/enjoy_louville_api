@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace ThreeAccents\Http\Controllers\Auth;
 
-use App\User;
+use ThreeAccents\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use ThreeAccents\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
