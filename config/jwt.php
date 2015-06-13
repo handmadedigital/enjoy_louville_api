@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'user' => 'ThreeAccents\Entities\User',
+    'user' => 'ThreeAccents\Users\Entities\User',
 
     /*
     |--------------------------------------------------------------------------
