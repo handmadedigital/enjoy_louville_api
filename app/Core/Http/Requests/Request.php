@@ -1,6 +1,6 @@
 <?php
 
-namespace ThreeAccents\Http\Requests;
+namespace ThreeAccents\Core\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

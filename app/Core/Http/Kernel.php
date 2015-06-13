@@ -1,6 +1,6 @@
 <?php
 
-namespace ThreeAccents\Http;
+namespace ThreeAccents\Core\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -13,12 +13,11 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \ThreeAccents\Http\Middleware\EncryptCookies::class,
+        \ThreeAccents\Core\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \ThreeAccents\Http\Middleware\VerifyCsrfToken::class,
-        'Barryvdh\Cors\Middleware\HandleCors',
+        \Barryvdh\Cors\Middleware\HandleCors::class,
     ];
 
     /**
@@ -27,8 +26,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \ThreeAccents\Http\Middleware\Authenticate::class,
+        'auth' => \ThreeAccents\Core\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \ThreeAccents\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \ThreeAccents\Core\Http\Middleware\RedirectIfAuthenticated::class,
+        'csrf' => \ThreeAccents\Core\Http\Middleware\VerifyCsrfToken::class,
     ];
 }

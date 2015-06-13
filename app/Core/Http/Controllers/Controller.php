@@ -1,6 +1,6 @@
 <?php
 
-namespace ThreeAccents\Http\Controllers;
+namespace ThreeAccents\Core\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

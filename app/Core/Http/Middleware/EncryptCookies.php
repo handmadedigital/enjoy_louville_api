@@ -1,6 +1,6 @@
 <?php
 
-namespace ThreeAccents\Http\Middleware;
+namespace ThreeAccents\Core\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 
