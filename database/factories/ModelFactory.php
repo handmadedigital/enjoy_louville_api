@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(ThreeAccents\User::class, function ($faker) {
+$factory->define(ThreeAccents\Users\Entities\User::class, function ($faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,

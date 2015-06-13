@@ -3,13 +3,11 @@
 namespace ThreeAccents\Users\Http\Controllers;
 
 use ThreeAccents\Core\Http\Controllers\ApiController;
-use ThreeAccents\Commands\RegisterUserCommand;
 use ThreeAccents\Users\Http\Requests\LoginRequest;
-use ThreeAccents\Users\Http\Requests\RegisterRequest;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\JWTAuth;
 
-class AuthController extends ApiController
+class AdminController extends ApiController
 {
     protected $auth;
 
@@ -18,14 +16,6 @@ class AuthController extends ApiController
         $this->auth = $auth;
     }
 
-    public function postRegister(RegisterRequest $request)
-    {
-        $this->dispatchFrom(RegisterUserCommand::class, $request);
-
-        return $this->respondWithArray([
-            'message' => 'user was registered'
-        ]);
-    }
 
     public function authenticate(LoginRequest $request)
     {
@@ -34,7 +24,7 @@ class AuthController extends ApiController
 
         try {
             // attempt to verify the credentials and create a token for the user
-            if (! $token = $this->auth->attempt($credentials)) {
+            if (! $token = $this->auth->attempt(['username' => $credentials['username'], 'password' => $credentials['password'], 'is_admin' => 1])) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }
         } catch (JWTException $e) {
@@ -43,13 +33,6 @@ class AuthController extends ApiController
         }
 
         // all good so return the token
-        return response()->json(compact('token'));
-    }
-
-    public function refreshToken()
-    {
-        $token =  $this->auth->parseToken()->refresh();
-
         return response()->json(compact('token'));
     }
 }

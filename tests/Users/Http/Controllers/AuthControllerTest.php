@@ -23,6 +23,6 @@ class AuthControllerTest  extends TestCase
             'first_name' => 'peter',
             'last_name' => 'griffin',
             'email' => 'peter@griffin.com'
-        ]);;
+        ]);
     }
 }
