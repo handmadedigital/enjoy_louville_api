@@ -143,6 +143,7 @@ return [
         ThreeAccents\Providers\AppServiceProvider::class,
         ThreeAccents\Providers\EventServiceProvider::class,
         ThreeAccents\Providers\RouteServiceProvider::class,
+        ThreeAccents\Providers\BusServiceProvider::class,
 
         /*
          * THIRD PARTY

@@ -24,7 +24,10 @@
         ],
         "psr-4": {
             "ThreeAccents\\": "app/"
-        }
+        },
+        "files":[
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [

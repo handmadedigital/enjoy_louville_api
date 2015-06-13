@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'ThreeAccents\Http\Controllers';
+    protected $namespace = 'ThreeAccents';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -38,7 +38,8 @@ class RouteServiceProvider extends ServiceProvider
     public function map(Router $router)
     {
         $router->group(['namespace' => $this->namespace], function ($router) {
-            require app_path('Http/routes.php');
+            require app_path('Core/Http/routes.php');
+            require app_path('Users/Http/routes.php');
         });
     }
 }
