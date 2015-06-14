@@ -18,13 +18,31 @@ class ReservationController extends ApiController
 
     public function store(StoreReservationRequest $request)
     {
-        Reservation::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'phone_number' => $request->phone_number,
-            'date' => $request->date,
-            'guests' => $request->guests,
-        ]);
+        if($request->is_guest === true)
+        {
+            Reservation::create([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'phone_number' => $request->phone_number,
+                'date' => $request->date,
+                'guests' => $request->guests,
+                'is_guest' => true,
+                'user_id' => $request->user_id,
+            ]);
+        }
+        else
+        {
+            Reservation::create([
+                'first_name' => null,
+                'last_name' => null,
+                'phone_number' => null,
+                'user_id' => $request->user_id,
+                'date' => $request->date,
+                'guests' => $request->guests,
+                'is_guest' => false,
+            ]);
+        }
+
 
         return $this->respondWithArray([
             'message' => 'reservation was made'

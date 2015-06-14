@@ -9,11 +9,13 @@ class StoreReservationRequest extends Request
         public function rules()
         {
             return [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'phone_number' => 'required',
+                'first_name' => 'required_if:is_guest,true',
+                'last_name' => 'required_if:is_guest,true',
+                'phone_number' => 'required_if:is_guest,true',
                 'date' => 'required',
-                'guests' => 'required',
+                'guests' => 'required|integer',
+                'is_guest' => 'required|boolean',
+                'user_id' => 'required|integer'
             ];
         }
 
