@@ -35,7 +35,8 @@ class AuthController extends ApiController
         try {
             // attempt to verify the credentials and create a token for the user
             if (! $token = $this->auth->attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+                $this->setStatusCode(401);
+                return $this->respondWithError(['Incorrect username or password'], 420);
             }
         } catch (JWTException $e) {
             // something went wrong whilst attempting to encode the token
