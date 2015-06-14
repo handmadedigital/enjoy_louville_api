@@ -9,14 +9,42 @@ class ReservationTransformer extends TransformerAbstract
 {
     public function transform(Reservation $reservation)
     {
+        if($reservation->is_guest) return $this->getGuestReservation($reservation);
+
+        return $this->getUserReservation($reservation);
+    }
+
+    /**
+     * @param Reservation $reservation
+     * @return array
+     */
+    protected function getGuestReservation(Reservation $reservation)
+    {
         return [
-            'id' => (int) $reservation->id,
+            'id' => (int)$reservation->id,
             'first_name' => $reservation->first_name,
             'last_name' => $reservation->last_name,
-            'phone_number' => (int) $reservation->phone_number,
+            'phone_number' => (int)$reservation->phone_number,
             'date' => $reservation->date,
-            'guests' => (int) $reservation->guests,
+            'guests' => (int)$reservation->guests,
+            'is_guest' => true,
         ];
+    }
 
+    /**
+     * @param Reservation $reservation
+     * @return array
+     */
+    protected function getUserReservation(Reservation $reservation)
+    {
+        return [
+            'id' => (int)$reservation->id,
+            'first_name' => $reservation->user->first_name,
+            'last_name' => $reservation->user->last_name,
+            'phone_number' => (int)$reservation->user->phone_number,
+            'date' => $reservation->date,
+            'guests' => (int)$reservation->guests,
+            'is_guest' => false,
+        ];
     }
 }
