@@ -14,7 +14,8 @@ class AuthControllerTest  extends TestCase
             'password' => 'testpass',
             'first_name' => 'peter',
             'last_name' => 'griffin',
-            'email' => 'peter@griffin.com'
+            'email' => 'peter@griffin.com',
+            'phone_number' => 954644
         ])
         ->seeJson()
         ->seeStatusCode(200)
@@ -22,7 +23,8 @@ class AuthControllerTest  extends TestCase
             'username' => 'test user',
             'first_name' => 'peter',
             'last_name' => 'griffin',
-            'email' => 'peter@griffin.com'
+            'email' => 'peter@griffin.com',
+            'phone_number' => 954644
         ]);
     }
 }

@@ -27,7 +27,7 @@ class RegisterUserCommandHandler
      */
     public function handle(RegisterUserCommand $command)
     {
-        $user = User::register($command->getUsername(), $command->getEmail(), $command->getFirstName(), $command->getLastName(), $command->getPassword());
+        $user = User::register($command->getUsername(), $command->getEmail(), $command->getFirstName(), $command->getLastName(), $command->getPassword(), $command->getPhoneNumber());
 
         $this->userRepo->persist($user);
     }
