@@ -3,6 +3,7 @@
 namespace ThreeAccents\Users\Repositories;
 
 
+use Illuminate\Support\Facades\Hash;
 use ThreeAccents\Users\Entities\User;
 
 class UserRepository
@@ -22,7 +23,7 @@ class UserRepository
         $this->model->first_name = $user->first_name;
         $this->model->last_name = $user->last_name;
         $this->model->phone_number = $user->phone_number;
-        $this->model->password = bcrypt($user->password);
+        $this->model->password = Hash::make($user->password);
 
         $this->model->save();
     }
